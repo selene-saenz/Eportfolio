@@ -1051,6 +1051,135 @@
             line-height: 1.6;
         }
 
+        /* Veille */
+        .veille-container {
+            background: var(--glass);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .veille-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 22px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .veille-header h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .veille-controls {
+            display: flex;
+            gap: 12px;
+        }
+
+        .veille-btn {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .veille-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background: var(--bg-dark);
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 28px;
+            background: var(--glass);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-item:hover {
+            background: var(--glass-strong);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(var(--primary-rgb), 0.25);
+            border-color: rgba(var(--primary-rgb), 0.22);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.15);
+        }
+
+        .contact-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .contact-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--highlight);
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .sidebar {
@@ -1072,11 +1201,16 @@
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .iframe-container {
+                height: 400px;
+            }
         }
 
         @media (max-width: 640px) {
             .stats-grid,
-            .cards-grid {
+            .cards-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1098,6 +1232,21 @@
 
             .sidebar {
                 width: 280px;
+            }
+
+            .iframe-container {
+                height: 300px;
+            }
+
+            .veille-header {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+
+            .veille-controls {
+                width: 100%;
+                justify-content: flex-start;
             }
         }
 
@@ -1566,7 +1715,7 @@
                         </div>
                     </div>
                     <div class="cert-image-card reveal">
-                        <img src="certificats/ccna.jpg" alt="Cisco CCNA">
+                        <img src="cisco packet tracer.jpg" alt="Packet Tracer">
                         <div class="cert-image-overlay">
                             <i class="fas fa-search-plus cert-zoom-icon"></i>
                         </div>
@@ -1611,7 +1760,7 @@
                 <div class="cards-grid">
                     <div class="project-card reveal">
                         <div class="project-header">
-                            <h3>SRNPA</h3>
+                            <h3>RNPA</h3>
                             <div class="project-type">Projet Dev et Réseaux</div>
                         </div>
                         <div class="project-content">
@@ -1650,7 +1799,7 @@
                 <div class="section-header reveal">
                     <div class="section-tag">Parcours</div>
                     <h2 class="section-title">Mon Parcours de Formation</h2>
-                    <p class="section-description">De la découverte des systèmes numériques à la spécialisation en administration</p>
+                    <p class="section-description"></p>
                 </div>
 
                 <div class="timeline">
@@ -1671,7 +1820,18 @@
                             <div class="timeline-title">École Supérieure du Digital</div>
                             <div class="timeline-company">Code, Webdesign, Marketing</div>
                             <div class="timeline-description">
-                                Formation professionnelle orientée réseaux informatiques et systèmes de communication. Première approche des technologies réseau, électronique numérique et systèmes embarqués. Compétences en installation/configuration d'équipements réseau et câblage.
+                                Formation générale incluant la découverte de plusieurs code (Arduino, HTML/CSS/JS, Bootstrap, ARjs) ainsi que les pratiques ourantes du Webdesign en passant par la création de logo et d'identité visuelle.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-card">
+                            <div class="timeline-date">2021 - 2023</div>
+                            <div class="timeline-title">Université Paris Est Créteil</div>
+                            <div class="timeline-company">Licence Administration et Échanges Internationiaux - Parcours Shanghai</div>
+                            <div class="timeline-description">
+                                Formation de droit et commerce international incluant du droit, de l'économie et du mandarin.
                             </div>
                         </div>
                     </div>
@@ -1685,7 +1845,7 @@
                 <div class="section-header reveal">
                     <div class="section-tag">Veille</div>
                     <h2 class="section-title">Ma Veille Informatique</h2>
-                    <p class="section-description">Site dédié à la veille technologique et sécurité</p>
+                    <p class="section-description">Site dédié à la veille technologique</p>
                 </div>
 
                 <div class="veille-container reveal">
@@ -1723,22 +1883,22 @@
                 <div class="timeline">
                     <div class="timeline-item reveal">
                         <div class="timeline-card">
-                            <div class="timeline-date">Juin - Août 2024 (8 semaines)</div>
+                            <div class="timeline-date">Juin - Août 2024 (12 semaines)</div>
                             <div class="timeline-title">Stage UX/UI Designer</div>
-                            <div class="timeline-company">Studio Design Lumière - Paris, France</div>
+                            <div class="timeline-company">Miro Paris - Paris, France</div>
                             <div class="timeline-description">
-                                Conception d'interfaces et prototypage (Figma), tests utilisateur et itérations pour améliorer l'ergonomie et l'accessibilité des produits web et mobiles.
+                                Conception d'interfaces et prototypage (Figma), création de banderols et organisation du Korean Festival 2024, design des cartes de fidélité.
                             </div>
                         </div>
                     </div>
 
                     <div class="timeline-item reveal">
                         <div class="timeline-card">
-                            <div class="timeline-date">Mars - Mai 2023 (10 semaines)</div>
-                            <div class="timeline-title">Stage Designer Produit</div>
-                            <div class="timeline-company">Atelier Créatif Nova - Île-de-France</div>
+                            <div class="timeline-date">Août - Juillet 2023 (2mois)</div>
+                            <div class="timeline-title">Stage Graphiste et Designer UX/UI</div>
+                            <div class="timeline-company">Balakid Box - Île-de-France</div>
                             <div class="timeline-description">
-                                Travail sur l'identité visuelle, wireframes, parcours utilisateur et réalisation de maquettes interactives en collaboration avec les équipes produit et développement.
+                                Travail sur l'identité visuelle, la communication de la marque ainsi que les futurs gammes de produits (jeu de cartes) et refonte maquette du site (Figma).
                             </div>
                         </div>
                     </div>
@@ -1760,7 +1920,7 @@
                         <i class="fas fa-envelope contact-icon"></i>
                         <div>
                             <h3>Email</h3>
-                            <p><a href="mailto:selene.saenz@example.com">selene.saenz@example.com</a></p>
+                            <p><a href="mailto:selene.saenz@example.com">marie.saenz21@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item reveal">
