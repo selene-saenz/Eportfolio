@@ -6,6 +6,40 @@
     <title>Selene | Portfolio SIO</title>
     <link rel="icon" type="image/x-icon" href="pp.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Suppression des CDN Tailwind et Babel en production -->
+    <script>
+        // Désactiver les avertissements de production en console
+        if (typeof window !== 'undefined') {
+            const originalWarn = console.warn;
+            const originalLog = console.log;
+            
+            console.warn = function(...args) {
+                // Ignorer les avertissements Babel et Tailwind
+                const message = args.join(' ');
+                if (
+                    !message.includes('cdn.tailwindcss.com') &&
+                    !message.includes('Babel transformer') &&
+                    !message.includes('source map')
+                ) {
+                    originalWarn.apply(console, args);
+                }
+            };
+            
+            console.log = function(...args) {
+                // Filtrer les logs inutiles
+                const message = args.join(' ');
+                if (
+                    !message.includes('cdn.tailwindcss.com') &&
+                    !message.includes('Babel') &&
+                    !message.includes('source map')
+                ) {
+                    originalLog.apply(console, args);
+                }
+            };
+        }
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -1709,37 +1743,37 @@
 
                 <div class="cert-gallery">
                     <div class="cert-image-card reveal">
-                        <img src="ebios.jpg" alt="EBIOS">
+                        <img src="ebios.jpg" alt="EBIOS" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%23d87a2d%22 width=%22200%22 height=%22260%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%2224%22 font-weight=%22bold%22%3EEBIOS%3C/text%3E%3C/svg%3E'">
                         <div class="cert-image-overlay">
                             <i class="fas fa-search-plus cert-zoom-icon"></i>
                         </div>
                     </div>
                     <div class="cert-image-card reveal">
-                        <img src="cisco packet tracer.jpg" alt="Packet Tracer">
+                        <img src="cisco-packet-tracer.jpg" alt="Packet Tracer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%237a4b2b%22 width=%22200%22 height=%22260%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%2220%22 font-weight=%22bold%22%3ECisco Packet Tracer%3C/text%3E%3C/svg%3E'">
                         <div class="cert-image-overlay">
                             <i class="fas fa-search-plus cert-zoom-icon"></i>
                         </div>
                     </div>
                     <div class="cert-image-card reveal">
-                        <img src="certificats/security_plus.jpg" alt="CompTIA Security+">
+                        <img src="security-plus.jpg" alt="CompTIA Security+" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%23b34a3a%22 width=%22200%22 height=%22260%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%2218%22 font-weight=%22bold%22%3ESecurity%2B%3C/text%3E%3C/svg%3E'">
                         <div class="cert-image-overlay">
                             <i class="fas fa-search-plus cert-zoom-icon"></i>
                         </div>
                     </div>
                     <div class="cert-image-card reveal">
-                        <img src="certificats/lpic1.jpg" alt="Linux Professional">
+                        <img src="lpic-1.jpg" alt="Linux Professional" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%23ffb86b%22 width=%22200%22 height=%22260%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%231a0f0b%22 font-size=%2220%22 font-weight=%22bold%22%3ELPIC-1%3C/text%3E%3C/svg%3E'">
                         <div class="cert-image-overlay">
                             <i class="fas fa-search-plus cert-zoom-icon"></i>
                         </div>
                     </div>
                     <div class="cert-image-card reveal">
-                        <img src="certificats/vmware_vcp.jpg" alt="VMware VCP">
+                        <img src="vmware-vcp.jpg" alt="VMware VCP" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%2207b344%22 width=%22200%22 height=%22260%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%2220%22 font-weight=%22bold%22%3EVMware VCP%3C/text%3E%3C/svg%3E'">
                         <div class="cert-image-overlay">
                             <i class="fas fa-search-plus cert-zoom-icon"></i>
                         </div>
                     </div>
                     <div class="cert-image-card reveal">
-                        <img src="certificats/ceh.jpg" alt="Certified Ethical Hacker">
+                        <img src="ceh-certified.jpg" alt="Certified Ethical Hacker" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%23ec1c24%22 width=%22200%22 height=%22260%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%2218%22 font-weight=%22bold%22%3ECEH%3C/text%3E%3C/svg%3E'">
                         <div class="cert-image-overlay">
                             <i class="fas fa-search-plus cert-zoom-icon"></i>
                         </div>
@@ -2043,11 +2077,18 @@
         const zoomOutBtn = document.getElementById('zoomOutBtn');
         const zoomLevel = document.getElementById('zoomLevel');
 
+        let currentZoom = 1;
+
         document.querySelectorAll('.cert-image-card').forEach(card => {
             card.addEventListener('click', () => {
                 const imgSrc = card.querySelector('img').src;
+                const imgAlt = card.querySelector('img').alt;
                 certImage.src = imgSrc;
+                certImage.alt = imgAlt;
                 certModal.classList.add('active');
+                currentZoom = 1;
+                certImage.style.transform = `scale(${currentZoom})`;
+                zoomLevel.innerText = `${Math.round(currentZoom * 100)}%`;
             });
         });
 
@@ -2055,10 +2096,9 @@
             certModal.classList.remove('active');
         });
 
-        let currentZoom = 1;
         zoomInBtn.addEventListener('click', () => {
-            if (currentZoom < 2) {
-                currentZoom += 0.1;
+            if (currentZoom < 2.5) {
+                currentZoom += 0.2;
                 certImage.style.transform = `scale(${currentZoom})`;
                 zoomLevel.innerText = `${Math.round(currentZoom * 100)}%`;
             }
@@ -2066,7 +2106,7 @@
 
         zoomOutBtn.addEventListener('click', () => {
             if (currentZoom > 1) {
-                currentZoom -= 0.1;
+                currentZoom = Math.max(1, currentZoom - 0.2);
                 certImage.style.transform = `scale(${currentZoom})`;
                 zoomLevel.innerText = `${Math.round(currentZoom * 100)}%`;
             }
@@ -2075,6 +2115,13 @@
         // Close modal on outside click
         window.addEventListener('click', (e) => {
             if (e.target === certModal) {
+                certModal.classList.remove('active');
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && certModal.classList.contains('active')) {
                 certModal.classList.remove('active');
             }
         });
