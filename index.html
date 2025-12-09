@@ -6,6 +6,9 @@
     <title>Selene | Portfolio SIO</title>
     <link rel="icon" type="image/x-icon" href="pp.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
     <!-- Suppression des CDN Tailwind et Babel en production -->
     <script>
@@ -47,6 +50,15 @@
             box-sizing: border-box;
         }
 
+        
+    .jost-<uniquifier> {
+            font-family: "Jost", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+        }
+
+        
         :root {
             /* Palette marron / rouge / orange (ternes) - une couleur ressort (--primary) */
             --primary: #d87a2d;        /* orange chaud -> couleur qui ressort */
