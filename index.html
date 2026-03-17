@@ -57,20 +57,6 @@
             z-index: 1;
         }
 
-        /* Scanlines */
-        .scanlines {
-            position: fixed;
-            inset: 0;
-            z-index: 2;
-            pointer-events: none;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(0, 0, 0, 0.07) 2px,
-                rgba(0, 0, 0, 0.07) 4px
-            );
-        }
 
         /* CRT vignette */
         .vignette {
@@ -1326,21 +1312,6 @@
             .hero-title { font-size: 2rem; }
         }
 
-        /* Floating scanline across the whole page */
-        @keyframes scanline-move {
-            0% { top: -5%; }
-            100% { top: 105%; }
-        }
-
-        .scanline-bar {
-            position: fixed;
-            left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, rgba(0,245,255,0.1), rgba(0,245,255,0.2), rgba(0,245,255,0.1), transparent);
-            z-index: 10;
-            pointer-events: none;
-            animation: scanline-move 8s linear infinite;
-        }
     </style>
 </head>
 <body>
