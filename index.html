@@ -782,6 +782,21 @@
             <div class="cards-grid">
                 <div class="project-card reveal">
                     <div class="project-header">
+                        <h3>Configuration d'un Cloud personnel</h3>
+                        <div class="project-type">> Projet Réseaux</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Configuration et gestion d'un cloud personnel pour héberger des applications et des données de manière sécurisée et évolutive.</p>
+                        <div class="project-tags">
+                            <span class="tag">Routeur</span>
+                            <span class="tag">Jellyfin</span>
+                            <span class="tag">Mini PC</span>
+                            <span class="tag">Cloud</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-header">
                         <h3>RNPA</h3>
                         <div class="project-type">> Projet Dev et Réseaux</div>
                     </div>
@@ -825,7 +840,7 @@
                             <span class="tag">Infrastructure</span>
                             <span class="tag">VirtualBox</span>
                         </div>
-                        <button onclick="openOCSDocumentation()" class="btn btn-secondary" style="margin-top:14px;"><i class="fas fa-file-word"></i> Voir la documentation</button>
+                        <button onclick="openDocumentation('SAENZ_DE_NAVARRETE_Selene_OCS.pdf', 'Documentation OCS Inventory')" class="btn btn-secondary" style="margin-top:14px;"><i class="fas fa-file-pdf"></i> Voir la documentation</button>
                     </div>
                 </div>
             </div>
@@ -1003,11 +1018,11 @@
     </div>
 </div>
 
-<!-- Doc Modal -->
+<!-- Doc Modal (générique pour tous les documents PDF du dossier Document/) -->
 <div id="ocsDocModal" class="doc-modal">
     <div class="doc-modal-content">
         <div class="doc-modal-header">
-            <h2><i class="fas fa-file-word"></i> Documentation OCS Inventory</h2>
+            <h2 id="docModalTitle"><i class="fas fa-file-pdf"></i> Documentation</h2>
             <button class="doc-modal-close" onclick="closeOCSDocumentation()">&times;</button>
         </div>
         <iframe id="docFrame" class="doc-modal-iframe" src=""></iframe>
@@ -1125,12 +1140,18 @@ document.getElementById('zoomOutBtn').addEventListener('click', () => {
     if (zoom>1) { zoom=Math.max(1,zoom-.2); certImage.style.transform=`scale(${zoom})`; document.getElementById('zoomLevel').innerText=Math.round(zoom*100)+'%'; }
 });
 
-// ── OCS DOC MODAL ──
-function openOCSDocumentation() {
+// ── DOC MODAL (générique — dossier "Document/", fichiers PDF) ──
+function openDocumentation(filename, title = 'Documentation') {
     const modal = document.getElementById('ocsDocModal');
     const frame = document.getElementById('docFrame');
-    const url = 'SAENZ_DE_NAVARRETE_Selene_OCS.docx';
-    frame.src = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(window.location.href.replace('index.html','') + url);
+    const titleEl = document.getElementById('docModalTitle');
+
+    titleEl.innerHTML = `<i class="fas fa-file-pdf"></i> ${title}`;
+
+    // Les PDF sont stockés dans le dossier "Document/" à la racine du projet
+    const fileUrl = 'Document/' + filename;
+    frame.src = fileUrl;
+
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
@@ -1140,6 +1161,7 @@ function closeOCSDocumentation() {
     document.body.style.overflow = 'auto';
 }
 document.getElementById('ocsDocModal').addEventListener('click', function(e) { if (e.target===this) closeOCSDocumentation(); });
+
 </script>
 </body>
 </html>
