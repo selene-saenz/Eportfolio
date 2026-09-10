@@ -439,6 +439,18 @@
         }
         .cert-image-card:hover .cert-image-overlay { opacity: 1; }
         .cert-zoom-icon { font-size: 26px; color: var(--cyan); text-shadow: 0 0 18px var(--cyan); }
+        .cert-synthese-card {
+            background: rgba(4,14,26,0.75);
+            border: 1px solid rgba(0,245,255,0.12);
+            border-radius: 14px; overflow: hidden;
+            box-shadow: 0 12px 34px rgba(0,0,0,0.35);
+            padding: 16px; margin-top: 8px;
+        }
+        .cert-synthese-card .cert-image-card {
+            aspect-ratio: 16 / 10;
+            max-height: 650px;
+            border-radius: 12px;
+        }
 
         /* Veille */
         .veille-container {
@@ -867,10 +879,31 @@
             <div class="cert-gallery">
                 <div class="cert-image-card reveal"><img src="ebios.jpg" alt="EBIOS" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%2300f5ff22%22 width=%22200%22 height=%22260%22/%3E%3Crect fill=%22none%22 stroke=%22%2300f5ff%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22198%22 height=%22258%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2300f5ff%22 font-size=%2224%22 font-weight=%22bold%22%3EEBIOS%3C/text%3E%3C/svg%3E'"><div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div></div>
                 <div class="cert-image-card reveal"><img src="cisco.jpg" alt="Packet Tracer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%2300f5ff11%22 width=%22200%22 height=%22260%22/%3E%3Crect fill=%22none%22 stroke=%22%2300f5ff%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22198%22 height=%22258%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2300f5ff%22 font-size=%2218%22 font-weight=%22bold%22%3ECisco%3C/text%3E%3C/svg%3E'"><div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div></div>
-                <div class="cert-image-card reveal"><img src="security-plus.jpg" alt="CompTIA Security+" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%23ff2d7811%22 width=%22200%22 height=%22260%22/%3E%3Crect fill=%22none%22 stroke=%22%23ff2d78%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22198%22 height=%22258%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ff2d78%22 font-size=%2216%22 font-weight=%22bold%22%3ESecurity%2B%3C/text%3E%3C/svg%3E'"><div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div></div>
-                <div class="cert-image-card reveal"><img src="lpic-1.jpg" alt="Linux Professional" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%23aaff0011%22 width=%22200%22 height=%22260%22/%3E%3Crect fill=%22none%22 stroke=%22%23aaff00%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22198%22 height=%22258%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23aaff00%22 font-size=%2220%22 font-weight=%22bold%22%3ELPIC-1%3C/text%3E%3C/svg%3E'"><div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div></div>
-                <div class="cert-image-card reveal"><img src="vmware-vcp.jpg" alt="VMware VCP" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%2300f5ff11%22 width=%22200%22 height=%22260%22/%3E%3Crect fill=%22none%22 stroke=%22%2300f5ff%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22198%22 height=%22258%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2300f5ff%22 font-size=%2218%22 font-weight=%22bold%22%3EVMware%3C/text%3E%3C/svg%3E'"><div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div></div>
-                <div class="cert-image-card reveal"><img src="ceh-certified.jpg" alt="CEH" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%23ff2d7811%22 width=%22200%22 height=%22260%22/%3E%3Crect fill=%22none%22 stroke=%22%23ff2d78%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22198%22 height=%22258%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ff2d78%22 font-size=%2224%22 font-weight=%22bold%22%3ECEH%3C/text%3E%3C/svg%3E'"><div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div></div>
+                </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- ── TABLEAU DE SYNTHÈSE ── -->
+        <section id="certifications-synthese" class="section">
+            <div class="section-bar" data-label="Synthèse" data-title="Tableau de synthèse">
+                <div class="section-bar-inner">
+                    <div class="section-bar-dot"></div>
+                    <span class="section-bar-label">Synthèse</span>
+                    <span class="section-bar-sep">/</span>
+                    <span class="section-bar-title">Tableau de synthèse</span>
+                </div>
+            </div>
+            <div class="section-header reveal">
+                <div class="section-tag">Synthèse</div>
+                <h2 class="section-title">Tableau de <span class="accent">Synthèse</span></h2>
+                <p class="section-description">Vue d'ensemble de mes compétences, projets et certifications</p>
+            </div>
+            <div class="cert-synthese-card reveal">
+                <div class="cert-image-card" role="button" tabindex="0" aria-label="Ouvrir le tableau de synthèse">
+                    <img src="tableau-de-synthese.png" alt="Tableau de synthèse" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 780%22%3E%3Crect fill=%22%23010b12%22 width=%221200%22 height=%22780%22/%3E%3Crect fill=%22none%22 stroke=%22%2300f5ff%22 stroke-width=%224%22 x=%2210%22 y=%2210%22 width=%221180%22 height=%22760%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2300f5ff%22 font-size=%2248%22 font-weight=%22bold%22%3ETableau de synth%C3%A8se%3C/text%3E%3C/svg%3E'">
+                    <div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div>
+                </div>
             </div>
         </section>
 
