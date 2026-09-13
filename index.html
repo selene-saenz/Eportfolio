@@ -569,16 +569,24 @@
             position: relative; max-width: 90vw; max-height: 90vh;
             display: flex; flex-direction: column; align-items: center; gap: 14px;
         }
-        .cert-modal-image {
-            max-width: 80vw; max-height: 75vh; object-fit: contain;
+        .cert-modal-viewport {
+            width: 80vw; height: 68vh; max-width: 900px;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
             border-radius: 10px; border: 1px solid rgba(0,245,255,0.3);
             box-shadow: 0 0 60px rgba(0,245,255,0.12), 0 30px 80px rgba(0,0,0,0.8);
+            background: rgba(3,8,16,0.6);
+        }
+        .cert-modal-image {
+            max-width: 100%; max-height: 100%; object-fit: contain;
             transition: transform 0.2s;
         }
         .cert-modal-controls {
+            position: relative; z-index: 5;
             display: flex; gap: 10px; align-items: center;
             background: rgba(4,10,22,0.96); padding: 10px 18px;
             border: 1px solid rgba(0,245,255,0.2); border-radius: 8px;
+            flex-shrink: 0;
         }
         .cert-zoom-btn {
             background: rgba(0,245,255,0.07); border: 1px solid rgba(0,245,255,0.25);
@@ -588,7 +596,7 @@
         .cert-zoom-btn:hover { background: rgba(0,245,255,0.15); }
         .cert-zoom-level { color: var(--muted); font-size: 11px; min-width: 46px; text-align: center; }
         .cert-close-btn {
-            position: absolute; top: -10px; right: -10px;
+            position: absolute; top: -10px; right: -10px; z-index: 6;
             background: rgba(0,245,255,0.65); border: none; color: #fff;
             width: 30px; height: 30px; border-radius: 50%; font-size: 13px;
             cursor: pointer; display: flex; align-items: center; justify-content: center;
@@ -646,6 +654,7 @@
         }
         @media (max-width: 640px) {
             .cert-image-card { width: 88px; height: 116px; }
+            .cert-modal-viewport { width: 92vw; height: 55vh; }
             .stats-grid, .contact-grid { grid-template-columns: 1fr; }
             .content { padding: 30px 16px 120px; }
             .cta-buttons { flex-direction: column; }
@@ -1139,7 +1148,9 @@
 <div class="cert-modal" id="certModal">
     <div class="cert-modal-content">
         <button class="cert-close-btn" id="certCloseBtn"><i class="fas fa-times"></i></button>
-        <img src="" alt="Certification" class="cert-modal-image" id="certImage">
+        <div class="cert-modal-viewport">
+            <img src="" alt="Certification" class="cert-modal-image" id="certImage">
+        </div>
         <div class="cert-modal-controls">
             <button class="cert-zoom-btn" id="zoomInBtn"><i class="fas fa-plus"></i></button>
             <span class="cert-zoom-level" id="zoomLevel">100%</span>
