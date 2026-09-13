@@ -329,24 +329,52 @@
         .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
         .card p  { color: rgba(255,255,255,0.78); line-height: 1.75; font-size: 0.91rem; }
 
-        /* Skills */
-        .skill-category h3 {
-            font-size: 0.88rem; font-weight: 700; margin-bottom: 20px;
-            color: var(--cyan); display: flex; align-items: center; gap: 8px;
+        /* Skills — panneau en lignes, visuellement distinct des cards de projets */
+        .skills-panel {
+            background: rgba(4,10,20,0.7);
+            border: 1px solid rgba(0,245,255,0.15);
+            border-radius: 14px;
+            overflow: hidden;
         }
-        .skill-item {
-            margin-bottom: 14px; padding-bottom: 14px;
-            border-bottom: 1px solid rgba(0,245,255,0.07);
+        .skill-row {
+            display: flex; align-items: flex-start; gap: 22px;
+            padding: 22px 28px;
+            border-bottom: 1px solid rgba(0,245,255,0.08);
+            transition: background 0.25s ease;
         }
-        .skill-item:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
-        .skill-header {
-            display: flex; justify-content: space-between; align-items: center;
-            font-size: 12px; font-weight: 500;
+        .skill-row:last-child { border-bottom: none; }
+        .skill-row:hover { background: rgba(0,245,255,0.04); }
+        .skill-row-icon {
+            width: 44px; height: 44px; flex-shrink: 0;
+            border: 1px solid rgba(0,245,255,0.22);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 17px; color: var(--cyan);
+            background: rgba(0,245,255,0.04);
         }
-        .skill-name { color: rgba(255,255,255,0.8); }
-        .skill-stars { display: flex; gap: 3px; }
-        .skill-stars i { font-size: 10px; color: var(--cyan); }
-        .skill-stars i.far { color: rgba(0,245,255,0.15); }
+        .skill-row-body { flex: 1 1 240px; min-width: 180px; }
+        .skill-row-body h3 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+        .skill-row-body p { font-size: 0.83rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+        .skill-row-tags {
+            flex: 1 1 300px; display: flex; flex-wrap: wrap;
+            gap: 7px; align-content: flex-start; padding-top: 2px;
+        }
+        .skill-tag {
+            padding: 5px 12px;
+            background: rgba(0,245,255,0.07);
+            border: 1px solid rgba(0,245,255,0.25);
+            border-radius: 20px; font-size: 11px; font-weight: 500;
+            color: rgba(255,255,255,0.85); letter-spacing: 0.3px;
+            transition: all 0.2s;
+        }
+        .skill-tag:hover {
+            background: rgba(0,245,255,0.16); border-color: var(--cyan);
+            color: var(--cyan); transform: translateY(-1px);
+        }
+        @media (max-width: 768px) {
+            .skill-row { flex-direction: column; gap: 12px; padding: 20px; }
+            .skill-row-tags { padding-top: 0; }
+        }
 
         /* Projects */
         .project-card {
@@ -380,6 +408,33 @@
         }
         .tag:hover { background: rgba(0,245,255,0.14); border-color: var(--cyan); }
 
+        /* Tableau de synthèse — carte-image cliquable (même logique que les certifications) */
+        .synthese-image-card {
+            position: relative; overflow: hidden; border-radius: 12px;
+            background: rgba(4,14,26,0.75);
+            border: 1px solid rgba(0,245,255,0.15);
+            cursor: pointer;
+            width: 100%; max-width: 480px; aspect-ratio: 16/10;
+            transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
+        }
+        .synthese-image-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0,245,255,0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(0,245,255,0.1);
+        }
+        .synthese-image-card img {
+            width: 100%; height: 100%; object-fit: contain;
+            background: rgba(0,245,255,0.03);
+            transition: transform 0.35s ease, filter 0.35s;
+            filter: brightness(0.92) saturate(0.85);
+        }
+        .synthese-image-card:hover img { filter: brightness(1.05) saturate(1.1); }
+        .synthese-caption {
+            display: flex; align-items: center; gap: 8px;
+            margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.5);
+        }
+        .synthese-caption i { color: var(--cyan); }
+
         /* Timeline */
         .timeline { position: relative; padding-left: 44px; }
         .timeline::before {
@@ -409,21 +464,22 @@
 
         /* Certifications */
         .cert-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 12px;
         }
         .cert-image-card {
             position: relative; overflow: hidden; border-radius: 10px;
             background: rgba(4,14,26,0.75);
             border: 1px solid rgba(0,245,255,0.1);
-            cursor: pointer; aspect-ratio: 3/4;
+            cursor: pointer;
+            width: 110px; height: 145px; flex: 0 0 auto;
             transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
         }
         .cert-image-card:hover {
-            transform: scale(1.04);
+            transform: translateY(-3px);
             border-color: rgba(0,245,255,0.4);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 0 20px rgba(0,245,255,0.1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5), 0 0 16px rgba(0,245,255,0.1);
         }
         .cert-image-card img {
             width:100%; height:100%; object-fit: cover;
@@ -439,18 +495,6 @@
         }
         .cert-image-card:hover .cert-image-overlay { opacity: 1; }
         .cert-zoom-icon { font-size: 26px; color: var(--cyan); text-shadow: 0 0 18px var(--cyan); }
-        .cert-synthese-card {
-            background: rgba(4,14,26,0.75);
-            border: 1px solid rgba(0,245,255,0.12);
-            border-radius: 14px; overflow: hidden;
-            box-shadow: 0 12px 34px rgba(0,0,0,0.35);
-            padding: 16px; margin-top: 8px;
-        }
-        .cert-synthese-card .cert-image-card {
-            aspect-ratio: 16 / 10;
-            max-height: 650px;
-            border-radius: 12px;
-        }
 
         /* Veille */
         .veille-container {
@@ -601,6 +645,7 @@
             .iframe-container { height: 400px; }
         }
         @media (max-width: 640px) {
+            .cert-image-card { width: 88px; height: 116px; }
             .stats-grid, .contact-grid { grid-template-columns: 1fr; }
             .content { padding: 30px 16px 120px; }
             .cta-buttons { flex-direction: column; }
@@ -629,13 +674,15 @@
         <span class="logo-name">SELENE</span>
     </div>
     <nav class="nav-menu">
-        <a href="#home"      class="nav-link active">Accueil</a>
-        <a href="#about"     class="nav-link">À propos</a>
-        <a href="#skills"    class="nav-link">Compétences</a>
-        <a href="#projects"  class="nav-link">Projets</a>
-        <a href="#formation" class="nav-link">Parcours</a>
-        <a href="#veille"    class="nav-link">Veille</a>
-        <a href="#contact"   class="nav-link">Contact</a>
+        <a href="#home"           class="nav-link active">Accueil</a>
+        <a href="#about"          class="nav-link">À propos</a>
+        <a href="#skills"         class="nav-link">Compétences</a>
+        <a href="#projects"       class="nav-link">Projets</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#synthese"       class="nav-link">Synthèse</a>
+        <a href="#formation"      class="nav-link">Parcours</a>
+        <a href="#veille"         class="nav-link">Veille</a>
+        <a href="#contact"        class="nav-link">Contact</a>
     </nav>
 </header>
 
@@ -653,7 +700,7 @@
                     <span class="line1">Selene</span>
                     <span class="line2">Saenz de Navarrete</span>
                 </h1>
-                <p class="hero-subtitle">Spécialisée en administration système, infrastructure, et virtualisation. Passionnée par le design UX/UI et l'administration système.</p>
+                <p class="hero-subtitle">Étudiante en BTS SIO option SISR, je me spécialise dans l'administration système, la gestion de réseaux Cisco et la virtualisation d'infrastructures (VirtualBox, Proxmox). Curieuse des technologies émergentes, je recherche une alternance ou un stage pour mettre en pratique ces compétences au sein d'une équipe infrastructure/réseaux.</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i>Voir mes projets</a>
                     <a href="#contact"  class="btn btn-secondary"><i class="fas fa-envelope"></i>Mon CV</a>
@@ -722,53 +769,96 @@
                 <h2 class="section-title">Expertises <span class="accent">Techniques</span></h2>
                 <p class="section-description">Technologies maîtrisées en administration système, infrastructure, et virtualisation</p>
             </div>
-            <div class="cards-grid">
-                <div class="card reveal">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-shield-alt"></i> Administration Système</h3>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Configurer un réseau</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Sécuriser des systèmes</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Mise en place d'OS</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
+            <div class="skills-panel reveal">
+                <div class="skill-row">
+                    <div class="skill-row-icon"><i class="fas fa-network-wired"></i></div>
+                    <div class="skill-row-body">
+                        <h3>Réseau Cisco</h3>
+                        <p>Configuration et sécurisation de réseaux d'entreprise.</p>
+                    </div>
+                    <div class="skill-row-tags">
+                        <span class="skill-tag">VLAN</span>
+                        <span class="skill-tag">Adressage IP</span>
+                        <span class="skill-tag">Routage</span>
+                        <span class="skill-tag">Switching</span>
                     </div>
                 </div>
-                <div class="card reveal">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-cube"></i> Infrastructure</h3>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Application du protocole</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Optimisation des systèmes</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Installation du matériel</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div></div>
+                <div class="skill-row">
+                    <div class="skill-row-icon"><i class="fas fa-server"></i></div>
+                    <div class="skill-row-body">
+                        <h3>Virtualisation</h3>
+                        <p>Déploiement et gestion de machines virtuelles.</p>
+                    </div>
+                    <div class="skill-row-tags">
+                        <span class="skill-tag">VirtualBox</span>
+                        <span class="skill-tag">Proxmox VE</span>
+                        <span class="skill-tag">VM</span>
+                        <span class="skill-tag">Snapshots</span>
                     </div>
                 </div>
-                <div class="card reveal">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-server"></i> Virtualisation</h3>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">VirtualBox</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div></div>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Linux Admin</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Windows Server</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
+                <div class="skill-row">
+                    <div class="skill-row-icon"><i class="fas fa-cube"></i></div>
+                    <div class="skill-row-body">
+                        <h3>Solutions d'infrastructure</h3>
+                        <p>Mise en place d'architectures réseau virtualisées.</p>
+                    </div>
+                    <div class="skill-row-tags">
+                        <span class="skill-tag">VLAN</span>
+                        <span class="skill-tag">WAN</span>
+                        <span class="skill-tag">Proxmox</span>
+                        <span class="skill-tag">Infrastructure hybride</span>
                     </div>
                 </div>
-                <div class="card reveal">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-vr-cardboard"></i> Technologies Émergentes</h3>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">UX/UI Design</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></div></div></div>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Unreal Engine 5</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></div></div></div>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Robotique/Domotique</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
+                <div class="skill-row">
+                    <div class="skill-row-icon"><i class="fas fa-desktop"></i></div>
+                    <div class="skill-row-body">
+                        <h3>Windows & Linux</h3>
+                        <p>Administration système multiplateforme.</p>
+                    </div>
+                    <div class="skill-row-tags">
+                        <span class="skill-tag">Windows Server</span>
+                        <span class="skill-tag">Linux Admin</span>
+                        <span class="skill-tag">Active Directory</span>
+                        <span class="skill-tag">Shell/Bash</span>
                     </div>
                 </div>
-                <div class="card reveal">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-code"></i> Développement</h3>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Python</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">PHP/SQL</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">HTML/CSS/JS</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
+                <div class="skill-row">
+                    <div class="skill-row-icon"><i class="fas fa-tools"></i></div>
+                    <div class="skill-row-body">
+                        <h3>Support & Diagnostic</h3>
+                        <p>Maintenance et dépannage matériel/logiciel.</p>
+                    </div>
+                    <div class="skill-row-tags">
+                        <span class="skill-tag">Diagnostic matériel</span>
+                        <span class="skill-tag">Pilotes</span>
+                        <span class="skill-tag">Dépannage</span>
+                        <span class="skill-tag">Assistance utilisateurs</span>
                     </div>
                 </div>
-                <div class="card reveal">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-network-wired"></i> Réseaux</h3>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Mise en domaine</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div></div>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Elaborer des procédures de tests</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
-                        <div class="skill-item"><div class="skill-header"><span class="skill-name">Configuration d'un routeur Cisco</span><div class="skill-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div></div>
+                <div class="skill-row">
+                    <div class="skill-row-icon"><i class="fas fa-vr-cardboard"></i></div>
+                    <div class="skill-row-body">
+                        <h3>Technologies émergentes</h3>
+                        <p>Veille et exploration de nouvelles technologies.</p>
+                    </div>
+                    <div class="skill-row-tags">
+                        <span class="skill-tag">UX/UI Design</span>
+                        <span class="skill-tag">Arduino</span>
+                        <span class="skill-tag">Unreal Engine</span>
+                        <span class="skill-tag">Domotique</span>
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-row-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="skill-row-body">
+                        <h3>Supervision réseau</h3>
+                        <p>Simulation et supervision d'infrastructures réseau.</p>
+                    </div>
+                    <div class="skill-row-tags">
+                        <span class="skill-tag">Packet Tracer</span>
+                        <span class="skill-tag">GNS3</span>
+                        <span class="skill-tag">Monitoring</span>
+                        <span class="skill-tag">Cartographie réseau</span>
                     </div>
                 </div>
             </div>
@@ -805,7 +895,7 @@
                             <span class="tag">Mini PC</span>
                             <span class="tag">Cloud</span>
                         </div>
-                        <button onclick="openDocumentation('CloudPerso_Documentation_Technique.pdf', 'Documentation Cloud Personnel')" class="btn btn-secondary" style="margin-top:14px;"><i class="fas fa-file-pdf"></i> Voir la documentation</button>
+                        <button onclick="openDocumentation('Cloud_Personnel_Documentation.pdf', 'Documentation Cloud Personnel')" class="btn btn-secondary" style="margin-top:14px;"><i class="fas fa-file-pdf"></i> Afficher la documentation</button>
                     </div>
                 </div>
                 <div class="project-card reveal">
@@ -853,7 +943,7 @@
                             <span class="tag">Infrastructure</span>
                             <span class="tag">VirtualBox</span>
                         </div>
-                        <button onclick="openDocumentation('SAENZ_DE_NAVARRETE_Selene_OCS.pdf', 'Documentation OCS Inventory')" class="btn btn-secondary" style="margin-top:14px;"><i class="fas fa-file-pdf"></i> Voir la documentation</button>
+                        <button onclick="openDocumentation('SAENZ_DE_NAVARRETE_Selene_OCS.pdf', 'Documentation OCS Inventory')" class="btn btn-secondary" style="margin-top:14px;"><i class="fas fa-file-pdf"></i> Afficher la documentation</button>
                     </div>
                 </div>
             </div>
@@ -879,32 +969,35 @@
             <div class="cert-gallery">
                 <div class="cert-image-card reveal"><img src="ebios.jpg" alt="EBIOS" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%2300f5ff22%22 width=%22200%22 height=%22260%22/%3E%3Crect fill=%22none%22 stroke=%22%2300f5ff%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22198%22 height=%22258%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2300f5ff%22 font-size=%2224%22 font-weight=%22bold%22%3EEBIOS%3C/text%3E%3C/svg%3E'"><div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div></div>
                 <div class="cert-image-card reveal"><img src="cisco.jpg" alt="Packet Tracer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%2300f5ff11%22 width=%22200%22 height=%22260%22/%3E%3Crect fill=%22none%22 stroke=%22%2300f5ff%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22198%22 height=%22258%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2300f5ff%22 font-size=%2218%22 font-weight=%22bold%22%3ECisco%3C/text%3E%3C/svg%3E'"><div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div></div>
-                </div>
+                <div class="cert-image-card reveal"><img src="security-plus.jpg" alt="CompTIA Security+" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%23ff2d7811%22 width=%22200%22 height=%22260%22/%3E%3Crect fill=%22none%22 stroke=%22%23ff2d78%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22198%22 height=%22258%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ff2d78%22 font-size=%2216%22 font-weight=%22bold%22%3ESecurity%2B%3C/text%3E%3C/svg%3E'"><div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div></div>
+                <div class="cert-image-card reveal"><img src="lpic-1.jpg" alt="Linux Professional" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%23aaff0011%22 width=%22200%22 height=%22260%22/%3E%3Crect fill=%22none%22 stroke=%22%23aaff00%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22198%22 height=%22258%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23aaff00%22 font-size=%2220%22 font-weight=%22bold%22%3ELPIC-1%3C/text%3E%3C/svg%3E'"><div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div></div>
+                <div class="cert-image-card reveal"><img src="vmware-vcp.jpg" alt="VMware VCP" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%2300f5ff11%22 width=%22200%22 height=%22260%22/%3E%3Crect fill=%22none%22 stroke=%22%2300f5ff%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22198%22 height=%22258%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2300f5ff%22 font-size=%2218%22 font-weight=%22bold%22%3EVMware%3C/text%3E%3C/svg%3E'"><div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div></div>
+                <div class="cert-image-card reveal"><img src="ceh-certified.jpg" alt="CEH" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect fill=%22%23ff2d7811%22 width=%22200%22 height=%22260%22/%3E%3Crect fill=%22none%22 stroke=%22%23ff2d78%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22198%22 height=%22258%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ff2d78%22 font-size=%2224%22 font-weight=%22bold%22%3ECEH%3C/text%3E%3C/svg%3E'"><div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div></div>
+            </div>
         </section>
 
         <div class="separator"></div>
 
         <!-- ── TABLEAU DE SYNTHÈSE ── -->
-        <section id="certifications-synthese" class="section">
-            <div class="section-bar" data-label="Synthèse" data-title="Tableau de synthèse">
+        <section id="synthese" class="section">
+            <div class="section-bar" data-label="Synthèse" data-title="Tableau de Synthèse">
                 <div class="section-bar-inner">
                     <div class="section-bar-dot"></div>
                     <span class="section-bar-label">Synthèse</span>
                     <span class="section-bar-sep">/</span>
-                    <span class="section-bar-title">Tableau de synthèse</span>
+                    <span class="section-bar-title">Tableau de Synthèse</span>
                 </div>
             </div>
             <div class="section-header reveal">
                 <div class="section-tag">Synthèse</div>
-                <h2 class="section-title">Tableau de <span class="accent">Synthèse</span></h2>
-                <p class="section-description">Vue d'ensemble de mes compétences, projets et certifications</p>
+                <h2 class="section-title">Mon Tableau de <span class="accent">Synthèse</span></h2>
+                <p class="section-description">Vue d'ensemble de mes compétences, projets associés et niveau de pratique.</p>
             </div>
-            <div class="cert-synthese-card reveal">
-                <div class="cert-image-card" role="button" tabindex="0" aria-label="Ouvrir le tableau de synthèse">
-                    <img src="tableau-de-synthese.png" alt="Tableau de synthèse" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 780%22%3E%3Crect fill=%22%23010b12%22 width=%221200%22 height=%22780%22/%3E%3Crect fill=%22none%22 stroke=%22%2300f5ff%22 stroke-width=%224%22 x=%2210%22 y=%2210%22 width=%221180%22 height=%22760%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2300f5ff%22 font-size=%2248%22 font-weight=%22bold%22%3ETableau de synth%C3%A8se%3C/text%3E%3C/svg%3E'">
-                    <div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div>
-                </div>
+            <div class="synthese-image-card reveal" title="Cliquer pour agrandir">
+                <img src="tableau-synthese.jpg" alt="Tableau de synthèse des compétences" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 480 300%22%3E%3Crect fill=%22%2300f5ff11%22 width=%22480%22 height=%22300%22/%3E%3Crect fill=%22none%22 stroke=%22%2300f5ff%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22478%22 height=%22298%22/%3E%3Ctext x=%2250%25%22 y=%2247%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2300f5ff%22 font-size=%2222%22 font-weight=%22bold%22%3ETableau de synth%C3%A8se%3C/text%3E%3Ctext x=%2250%25%22 y=%2258%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2300f5ff88%22 font-size=%2213%22%3ECliquer pour agrandir%3C/text%3E%3C/svg%3E'">
+                <div class="cert-image-overlay"><i class="fas fa-search-plus cert-zoom-icon"></i></div>
             </div>
+            <p class="synthese-caption"><i class="fas fa-info-circle"></i> Cliquez sur l'image pour l'agrandir et zoomer.</p>
         </section>
 
         <div class="separator"></div>
@@ -1030,12 +1123,15 @@
 <!-- Mobile nav -->
 <nav class="mobile-nav">
     <div class="mobile-nav-links">
-        <a href="#home"      class="mobile-nav-link active"><i class="fas fa-home"></i></a>
-        <a href="#about"     class="mobile-nav-link"><i class="fas fa-user"></i></a>
-        <a href="#skills"    class="mobile-nav-link"><i class="fas fa-code"></i></a>
-        <a href="#projects"  class="mobile-nav-link"><i class="fas fa-folder"></i></a>
-        <a href="#formation" class="mobile-nav-link"><i class="fas fa-graduation-cap"></i></a>
-        <a href="#contact"   class="mobile-nav-link"><i class="fas fa-envelope"></i></a>
+        <a href="#home"           class="mobile-nav-link active"><i class="fas fa-home"></i></a>
+        <a href="#about"          class="mobile-nav-link"><i class="fas fa-user"></i></a>
+        <a href="#skills"         class="mobile-nav-link"><i class="fas fa-code"></i></a>
+        <a href="#projects"       class="mobile-nav-link"><i class="fas fa-folder"></i></a>
+        <a href="#certifications" class="mobile-nav-link"><i class="fas fa-certificate"></i></a>
+        <a href="#synthese"       class="mobile-nav-link"><i class="fas fa-table"></i></a>
+        <a href="#formation"      class="mobile-nav-link"><i class="fas fa-graduation-cap"></i></a>
+        <a href="#veille"         class="mobile-nav-link"><i class="fas fa-newspaper"></i></a>
+        <a href="#contact"        class="mobile-nav-link"><i class="fas fa-envelope"></i></a>
     </div>
 </nav>
 
@@ -1155,7 +1251,7 @@ sectionBars.forEach(b => barObs.observe(b));
 const certModal = document.getElementById('certModal');
 const certImage = document.getElementById('certImage');
 let zoom = 1;
-document.querySelectorAll('.cert-image-card').forEach(c => {
+document.querySelectorAll('.cert-image-card, .synthese-image-card').forEach(c => {
     c.addEventListener('click', () => {
         const img = c.querySelector('img');
         certImage.src = img.src; certImage.alt = img.alt;
