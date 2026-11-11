@@ -376,6 +376,99 @@
             .skill-row-tags { padding-top: 0; }
         }
 
+        /* ── En cours d'apprentissage ── */
+        .learning-header {
+            margin: 46px 0 22px;
+            padding-top: 30px;
+            border-top: 1px dashed rgba(0,245,255,0.18);
+            position: relative;
+        }
+        .learning-header::before {
+            content: '⌛';
+            position: absolute; left: 0; top: 10px;
+            font-size: 12px; color: rgba(0,245,255,0.5);
+            background: var(--bg);
+            padding-right: 12px;
+        }
+        .learning-title {
+            font-size: 1.35rem; font-weight: 700;
+            margin-bottom: 8px; letter-spacing: -0.2px;
+        }
+        .learning-description {
+            color: var(--muted); font-size: 0.9rem; max-width: 560px;
+            line-height: 1.7;
+        }
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 14px;
+        }
+        .learning-card {
+            background: rgba(4,14,26,0.55);
+            border: 1px dashed rgba(0,245,255,0.22);
+            border-radius: 12px;
+            padding: 20px 20px 18px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .learning-card:hover {
+            border-style: solid;
+            border-color: rgba(0,245,255,0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 18px rgba(0,245,255,0.08);
+        }
+        .learning-card-top {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .learning-icon {
+            width: 38px; height: 38px;
+            border: 1px solid rgba(0,245,255,0.2);
+            border-radius: 9px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 15px; color: var(--cyan);
+            background: rgba(0,245,255,0.04);
+        }
+        .learning-status {
+            font-size: 9.5px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
+            color: var(--cyan);
+            background: rgba(0,245,255,0.08);
+            border: 1px solid rgba(0,245,255,0.25);
+            padding: 3px 8px; border-radius: 20px;
+            position: relative;
+        }
+        .learning-status::before {
+            content: '';
+            display: inline-block;
+            width: 5px; height: 5px; border-radius: 50%;
+            background: var(--cyan);
+            margin-right: 5px; vertical-align: middle;
+            box-shadow: 0 0 6px var(--cyan);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        .learning-card h4 {
+            font-size: 0.92rem; font-weight: 700;
+            color: #fff; margin-bottom: 6px;
+        }
+        .learning-card p {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.82rem; line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        .learning-progress {
+            width: 100%; height: 3px;
+            background: rgba(0,245,255,0.08);
+            border-radius: 2px; overflow: hidden;
+        }
+        .learning-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0,245,255,0.4), var(--cyan));
+            box-shadow: 0 0 8px rgba(0,245,255,0.5);
+            border-radius: 2px;
+            transition: width 1.2s cubic-bezier(0.22,1,0.36,1);
+        }
+
         /* Projects */
         .project-card {
             background: rgba(4,14,26,0.75);
@@ -709,7 +802,7 @@
                     <span class="line1">Selene</span>
                     <span class="line2">Saenz de Navarrete</span>
                 </h1>
-                <p class="hero-subtitle">Étudiante en BTS SIO option SISR, je me spécialise dans l'administration système, la gestion de réseaux Cisco et la virtualisation d'infrastructures (VirtualBox, Proxmox). Curieuse des technologies émergentes, je recherche une alternance ou un stage pour mettre en pratique ces compétences au sein d'une équipe infrastructure/réseaux.</p>
+                <p class="hero-subtitle">Étudiante en BTS SIO option SISR, je me spécialise dans l'administration système, la gestion de réseaux Cisco et la virtualisation d'infrastructures (VirtualBox, Proxmox). Curieuse des technologies émergentes (GPU virtuel, render farm, automatisation Ansible), je recherche une alternance ou un stage pour mettre en pratique ces compétences au sein d'une équipe infrastructure/réseaux.</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i>Voir mes projets</a>
                     <a href="#contact"  class="btn btn-secondary"><i class="fas fa-envelope"></i>Mon CV</a>
@@ -776,7 +869,7 @@
             <div class="section-header reveal">
                 <div class="section-tag">Compétences</div>
                 <h2 class="section-title">Expertises <span class="accent">Techniques</span></h2>
-                <p class="section-description">Technologies maîtrisées en administration système, infrastructure, et virtualisation</p>
+                <p class="section-description">Technologies maîtrisées en administration système, infrastructure et virtualisation — et compétences actuellement en cours d'acquisition.</p>
             </div>
             <div class="skills-panel reveal">
                 <div class="skill-row">
@@ -885,6 +978,70 @@
                     </div>
                 </div>
             </div>
+
+            <!-- ── EN COURS D'APPRENTISSAGE ── -->
+            <div class="learning-header reveal">
+                <div class="section-tag" style="margin-bottom:8px;">En cours d'apprentissage</div>
+                <h3 class="learning-title">Compétences <span class="accent">en développement</span></h3>
+                <p class="learning-description">Technologies et domaines que j'explore actuellement, en lien avec ma veille sur la 3D et les infrastructures émergentes.</p>
+            </div>
+            
+            <div class="learning-grid reveal">
+                <div class="learning-card">
+                    <div class="learning-card-top">
+                        <div class="learning-icon"><i class="fas fa-microchip"></i></div>
+                        <span class="learning-status">En cours</span>
+                    </div>
+                    <h4>GPU virtuel & vGPU</h4>
+                    <p>Virtualisation de GPU (NVIDIA vGPU, Proxmox passthrough) pour les charges de rendu 3D et NPR en environnement virtualisé.</p>
+                    <div class="learning-progress"><div class="learning-progress-bar" style="width:35%"></div></div>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-card-top">
+                        <div class="learning-icon"><i class="fas fa-server"></i></div>
+                        <span class="learning-status">En cours</span>
+                    </div>
+                    <h4>Render Farm & pipeline 3D</h4>
+                    <p>Architecture réseau et stockage (NAS/SAN) pour fermes de rendu : files d'attente, débits, tolérance aux pannes.</p>
+                    <div class="learning-progress"><div class="learning-progress-bar" style="width:25%"></div></div>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-card-top">
+                        <div class="learning-icon"><i class="fas fa-shield-halved"></i></div>
+                        <span class="learning-status">En cours</span>
+                    </div>
+                    <h4>Durcissement Linux (hardening)</h4>
+                    <p>Appliquée à des serveurs Debian/Ubuntu : pare-feu nftables, SELinux/AppArmor, audit et bonnes pratiques ANSSI.</p>
+                    <div class="learning-progress"><div class="learning-progress-bar" style="width:50%"></div></div>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-card-top">
+                        <div class="learning-icon"><i class="fas fa-code-branch"></i></div>
+                        <span class="learning-status">En cours</span>
+                    </div>
+                    <h4>Ansible & automatisation</h4>
+                    <p>Déploiement reproductible de configurations (playbooks) pour mes labs Proxmox et serveurs Linux.</p>
+                    <div class="learning-progress"><div class="learning-progress-bar" style="width:30%"></div></div>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-card-top">
+                        <div class="learning-icon"><i class="fas fa-chart-line"></i></div>
+                        <span class="learning-status">En cours</span>
+                    </div>
+                    <h4>Supervision avancée</h4>
+                    <p>Mise en place de Zabbix / Grafana / Prometheus pour surveiller des infrastructures virtualisées.</p>
+                    <div class="learning-progress"><div class="learning-progress-bar" style="width:40%"></div></div>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-card-top">
+                        <div class="learning-icon"><i class="fas fa-lock"></i></div>
+                        <span class="learning-status">En cours</span>
+                    </div>
+                    <h4>Zero Trust & sécurité réseau</h4>
+                    <p>Principes Zero Trust, segmentation micro-réseau et authentification forte appliqués à des labs pfSense.</p>
+                    <div class="learning-progress"><div class="learning-progress-bar" style="width:20%"></div></div>
+                </div>
+            </div>
         </section>
 
         <div class="separator"></div>
@@ -932,7 +1089,7 @@
                             <span class="tag">Forensic</span>
                             <span class="tag">Adressage IP</span>
                             <span class="tag">Firmware</span>
-                            <span class="tag">RAID</span> https://arab-rayan.github.io/projet-nas/
+                            <span class="tag">RAID</span>
                         </div>
                         <button onclick="openDocumentation('https://arab-rayan.github.io/projet-nas/', 'Documentation Général NAS')" class="btn btn-secondary" style="margin-top:14px;"><i class="fas fa-file-pdf"></i> Afficher la documentation</button>
                     </div>
@@ -1291,7 +1448,7 @@ function openDocumentation(filename, title = 'Documentation') {
     titleEl.innerHTML = `<i class="fas fa-file-pdf"></i> ${title}`;
 
     // Les PDF sont stockés dans le dossier "Document/" à la racine du projet
-    const fileUrl = 'Document/' + filename;
+    const fileUrl = /^https?:\/\//.test(filename) ? filename : 'Document/' + filename;
     frame.src = fileUrl;
 
     modal.style.display = 'block';
