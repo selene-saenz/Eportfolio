@@ -679,6 +679,107 @@ main { overflow-x: clip; }
     *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
     html { scroll-behavior: auto; }
 }
+
+/* ═════ MODULE STAGE — carte projet 04 + documentation détaillée ═════ */
+.synthese-image-card { cursor: default; }
+.synth-pdf { display: block; width: 100%; height: min(78vh, 760px); border: 0; background: #fff; }
+.synth-pdf-fallback { padding: 48px 20px; text-align: center; color: var(--muted); background: rgba(0,6,12,.75); }
+.synth-pdf-fallback a { color: var(--cyan); text-decoration: underline; text-underline-offset: 4px; }
+button.synth-zoom { border: 0; cursor: pointer; font: inherit; }
+
+.sd-panel { width: min(97vw, 1320px); height: min(92vh, 940px); display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 30px; transform: scale(.94) translateY(30px); transition: transform .7s var(--spring); }
+.active > .sd-panel { transform: none; }
+.sd-head { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 2px 4px 0 14px; }
+.sd-head h2 { display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-weight: 400; font-size: clamp(1.15rem, 2.2vw, 1.6rem); line-height: 1.1; }
+.sd-head h2 .ic { color: var(--cyan); font-size: 20px; flex-shrink: 0; }
+.sd-head-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.sd-link { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; font-size: 13px; color: var(--muted); border: 1px solid var(--line); transition: color .3s, border-color .3s; }
+.sd-link:hover { color: var(--cyan); border-color: var(--cyan); }
+.sd-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 250px 1fr; gap: 14px; }
+.sd-index { display: flex; flex-direction: column; gap: 6px; padding: 18px 12px 18px 16px; border-radius: 20px; background: rgba(0,6,12,.55); border: 1px solid var(--line); overflow-y: auto; }
+.sd-index-t { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 1.15rem; padding: 0 8px 8px; }
+.sd-index ol { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.sd-index button { width: 100%; display: flex; align-items: center; gap: 12px; text-align: left; padding: 9px 10px; border-radius: 12px; color: var(--dim); font-size: 14px; transition: color .3s, background .3s; }
+.sd-index button .moon-ic { font-size: 18px; flex-shrink: 0; opacity: .7; }
+.sd-index button:hover { color: var(--text); background: rgba(255,255,255,.05); }
+.sd-index button.on { color: var(--cyan); background: var(--cyan-soft); }
+.sd-index button.on .moon-ic { opacity: 1; }
+.sd-main { overflow-y: auto; overscroll-behavior: contain; scroll-behavior: smooth; padding: 6px 18px 40px 8px; }
+.sd-sec { padding: 26px 0 34px; border-bottom: 1px solid var(--line); }
+.sd-sec:last-child { border-bottom: 0; }
+.sd-kicker { display: flex; align-items: center; gap: 10px; color: var(--cyan); font-family: var(--serif); font-style: italic; font-size: 1.05rem; margin-bottom: 8px; }
+.sd-kicker .moon-ic { font-size: 20px; }
+.sd-sec h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4.2vw, 3.3rem); line-height: 1; margin-bottom: 14px; }
+.sd-sec h3 em { font-style: italic; color: var(--cyan); }
+.sd-lead { color: var(--muted); font-size: 1.04rem; max-width: 70ch; margin-bottom: 22px; }
+.sd-sec h4 { font-size: 1.08rem; font-weight: 600; display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.sd-sec h4 .ic { color: var(--cyan); font-size: 18px; }
+.sd-sec p { color: var(--muted); font-size: .95rem; line-height: 1.65; }
+.sd-sec p + p { margin-top: 10px; }
+.sd-tag { display: inline-block; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 8px; }
+
+.sd-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 8px; }
+.sd-stat { padding: 20px 18px; border-radius: 22px; background: rgba(255,255,255,.04); border: 1px solid var(--line); }
+.sd-stat b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1; color: var(--cyan); }
+.sd-stat span { display: block; margin-top: 8px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
+
+.sd-grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.sd-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.sd-card { padding: 20px; border-radius: 22px; background: rgba(255,255,255,.04); border: 1px solid var(--line); transition: border-color .4s, background .4s; }
+.sd-card:hover { border-color: rgba(0,245,255,.4); background: rgba(0,245,255,.04); }
+.sd-card.warn:hover { border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.05); }
+.sd-dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; }
+.sd-dl dt { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); padding-top: 2px; }
+.sd-dl dd { color: var(--text); font-size: .98rem; }
+
+.sd-tl { position: relative; display: flex; flex-direction: column; gap: 14px; padding-left: 62px; }
+.sd-tl::before { content: ''; position: absolute; left: 21px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(to bottom, rgba(0,245,255,.6), rgba(0,245,255,.08)); }
+.sd-wk { position: relative; padding: 18px 20px; border-radius: 22px; background: rgba(255,255,255,.04); border: 1px solid var(--line); }
+.sd-wk > .moon-ic { position: absolute; left: -62px; top: 14px; font-size: 44px; color: var(--cyan); filter: drop-shadow(0 0 10px rgba(0,245,255,.4)); background: var(--bg); border-radius: 50%; }
+.sd-wk-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 6px; }
+.sd-wk-n { font-family: var(--serif); font-size: 1.9rem; line-height: 1; color: var(--cyan); }
+.sd-wk-d { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
+.sd-wk h4 { margin-bottom: 8px; }
+.sd-wk ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.sd-wk li { position: relative; padding-left: 16px; color: var(--muted); font-size: .93rem; line-height: 1.55; }
+.sd-wk li::before { content: ''; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); opacity: .75; }
+
+.sd-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.sd-ba .sd-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.sd-ba li { position: relative; padding-left: 18px; color: var(--muted); font-size: .93rem; }
+.sd-ba li::before { content: ''; position: absolute; left: 0; top: .6em; width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--dim); }
+.sd-ba .after li::before { background: var(--cyan); border-color: var(--cyan); }
+.sd-ba .after { border-color: rgba(0,245,255,.35); }
+.sd-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.sd-faq { display: flex; flex-direction: column; gap: 10px; }
+.sd-faq details { border-radius: 20px; background: rgba(255,255,255,.04); border: 1px solid var(--line); transition: border-color .3s; }
+.sd-faq details[open] { border-color: rgba(0,245,255,.4); }
+.sd-faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-weight: 500; font-size: 1rem; }
+.sd-faq summary::-webkit-details-marker { display: none; }
+.sd-faq summary::after { content: '+'; font-family: var(--serif); font-size: 1.8rem; line-height: 1; color: var(--cyan); transition: transform .4s var(--spring); }
+.sd-faq details[open] summary::after { transform: rotate(45deg); }
+.sd-faq details p { padding: 0 20px 18px; }
+.sd-foot { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 20px; }
+.sd-foot .btn-moon { text-decoration: none; }
+.sd-credit { color: var(--dim); font-size: .9rem; margin-top: 18px; }
+
+@media (max-width: 900px) {
+    .sd-panel { height: 94vh; border-radius: 24px; padding: 10px; }
+    .sd-body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; gap: 10px; }
+    .sd-index { flex-direction: row; align-items: center; padding: 8px; overflow-x: auto; overflow-y: hidden; }
+    .sd-index-t { display: none; }
+    .sd-index ol { flex-direction: row; gap: 4px; }
+    .sd-index button { white-space: nowrap; width: auto; padding: 8px 12px; }
+    .sd-main { padding: 0 6px 30px 2px; }
+    .sd-stats { grid-template-columns: repeat(2, 1fr); }
+    .sd-grid2, .sd-grid3, .sd-ba { grid-template-columns: 1fr; }
+    .sd-tl { padding-left: 50px; }
+    .sd-tl::before { left: 17px; }
+    .sd-wk > .moon-ic { left: -50px; font-size: 36px; }
+    .sd-link span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .sd-main { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
@@ -959,6 +1060,22 @@ main { overflow-x: clip; }
                     </div>
                 </div>
             </article>
+            <article class="pj lit-stage" data-reveal>
+                <div class="lum" aria-hidden="true"><span class="disc deep" style="--x:56%;--y:8%;--s:42%;--t:13s"></span><span class="bar" style="--x:-6%;--y:56%;--w:66%;--r:10deg;--o:.5"></span><span class="dots" style="--x:70%;--y:60%;--s:24%"></span></div>
+                <div class="pj-panel frost">
+                    <div class="moon-box pj-visual" data-moonbox data-seed="19" data-osc="1" data-rf=".27" data-orbit="1.55" data-spin="-.9">
+                        <span class="moon-glow"></span><canvas aria-hidden="true"></canvas>
+                        <span class="orbit-tag clear">Acronis</span><span class="orbit-tag clear">Clonezilla</span><span class="orbit-tag clear">BIOS</span><span class="orbit-tag clear">GLPI</span>
+                    </div>
+                    <div class="pj-text">
+                        <div class="pj-head"><span class="pj-num">04</span><span class="pj-type"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Stage · Parc informatique</span></div>
+                        <h3>Stage au lycée Corvisart-Tolbiac</h3>
+                        <p>Huit semaines de maintenance et de remise à niveau du parc informatique : diagnostic, restauration d'images système, déverrouillage BIOS et dépannage, puis une application de suivi de 462 produits avec alertes et accès par rôle. Stage réalisé en binôme, du 11 mai au 3 juillet 2026.</p>
+                        <div class="chips"><span class="chip">Acronis Cyber Protect</span><span class="chip">Clonezilla</span><span class="chip">BIOS</span><span class="chip">Windows 10</span><span class="chip">Domaine / GPO</span><span class="chip">GLPI</span><span class="chip">Pilotes</span></div>
+                        <button class="btn-moon" type="button" onclick="openStageDoc()">Afficher la documentation<span class="knob"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/> <path pathLength="1" d="M14 2v4a2 2 0 0 0 2 2h4"/> <path pathLength="1" d="M10 9H8"/> <path pathLength="1" d="M16 13H8"/> <path pathLength="1" d="M16 17H8"/></svg></span></button>
+                    </div>
+                </div>
+            </article>
         </div>
     </div>
 </section>
@@ -1021,10 +1138,12 @@ main { overflow-x: clip; }
                 <span class="disc deep" style="--x:2%;--y:60%;--s:28%;--t:11s"></span>
                 <span class="dots" style="--x:78%;--y:66%;--s:24%"></span>
             </div>
-            <div class="synthese-image-card frost" role="button" tabindex="0" aria-label="Agrandir le tableau de synthèse" title="Cliquer pour agrandir">
-                <div class="synth-bar"><span><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A2.5 10 0 0 1 12 2Z"/></svg>Tableau de synthèse</span><span class="synth-zoom"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="1" cx="11" cy="11" r="8"/> <line pathLength="1" x1="21" x2="16.65" y1="21" y2="16.65"/> <line pathLength="1" x1="11" x2="11" y1="8" y2="14"/> <line pathLength="1" x1="8" x2="14" y1="11" y2="11"/></svg>Agrandir</span></div>
+            <div class="synthese-image-card frost">
+                <div class="synth-bar"><span><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A2.5 10 0 0 0 12 2Z"/></svg>Tableau de synthèse</span><button type="button" class="synth-zoom" onclick="openDocumentation('tableau-de-synth%C3%A8se.pdf', 'Tableau de synthèse')" aria-label="Agrandir le tableau de synthèse"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="1" cx="11" cy="11" r="8"/> <line pathLength="1" x1="21" x2="16.65" y1="21" y2="16.65"/> <line pathLength="1" x1="11" x2="11" y1="8" y2="14"/> <line pathLength="1" x1="8" x2="14" y1="11" y2="11"/></svg>Agrandir</button></div>
                 <div class="synth-img">
-                <img src="tableau-de-synthese.png" alt="Tableau de synthèse des compétences" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 480 300%22%3E%3Crect fill=%22%2300f5ff11%22 width=%22480%22 height=%22300%22/%3E%3Crect fill=%22none%22 stroke=%22%2300f5ff%22 stroke-width=%222%22 x=%221%22 y=%221%22 width=%22478%22 height=%22298%22/%3E%3Ctext x=%2250%25%22 y=%2247%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2300f5ff%22 font-size=%2222%22 font-weight=%22bold%22%3ETableau de synth%C3%A8se%3C/text%3E%3Ctext x=%2250%25%22 y=%2258%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2300f5ff88%22 font-size=%2213%22%3ECliquer pour agrandir%3C/text%3E%3C/svg%3E'">
+                    <object class="synth-pdf" data="tableau-de-synth%C3%A8se.pdf#view=FitH" type="application/pdf" aria-label="Tableau de synthèse (PDF)">
+                        <div class="synth-pdf-fallback">Votre navigateur n'affiche pas les PDF directement. <a href="tableau-de-synth%C3%A8se.pdf" target="_blank" rel="noopener">Ouvrir le tableau de synthèse</a></div>
+                    </object>
                 </div>
             </div>
         </div>
@@ -1341,11 +1460,30 @@ main { overflow-x: clip; }
     </div>
 </div>
 
+
+<!-- Modale documentation du stage (module détaillé) -->
+<div id="stageDocModal" class="doc-modal" role="dialog" aria-modal="true" aria-label="Documentation du stage Corvisart-Tolbiac">
+    <div class="sd-panel frost">
+        <header class="sd-head">
+            <h2><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/> <path pathLength="1" d="M14 2v4a2 2 0 0 0 2 2h4"/> <path pathLength="1" d="M10 9H8"/> <path pathLength="1" d="M16 13H8"/> <path pathLength="1" d="M16 17H8"/></svg><span>Stage Corvisart-Tolbiac · Documentation</span></h2>
+            <div class="sd-head-actions">
+                <a class="sd-link" href="https://arab-rayan.github.io/rapport-de-stage-/" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/> <path pathLength="1" d="M14 2v4a2 2 0 0 0 2 2h4"/> <path pathLength="1" d="M10 9H8"/> <path pathLength="1" d="M16 13H8"/> <path pathLength="1" d="M16 17H8"/></svg><span>Rapport en ligne</span></a>
+                <button class="round-btn clear" type="button" onclick="closeStageDoc()" aria-label="Fermer"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M18 6 6 18"/> <path pathLength="1" d="m6 6 12 12"/></svg></button>
+            </div>
+        </header>
+        <div class="sd-body">
+            <nav class="sd-index" aria-label="Index de la documentation"><p class="sd-index-t">Index</p><ol><li><button type="button" data-sd="sd-vue"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A7.5 10 0 0 0 12 2Z"/></svg>Vue d'ensemble</button></li><li><button type="button" data-sd="sd-contexte"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A5.0 10 0 0 0 12 2Z"/></svg>Contexte et mission</button></li><li><button type="button" data-sd="sd-semaines"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A2.5 10 0 0 0 12 2Z"/></svg>Les 8 semaines</button></li><li><button type="button" data-sd="sd-parc"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A0.0 10 0 0 1 12 2Z"/></svg>Parc informatique</button></li><li><button type="button" data-sd="sd-appli"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A2.5 10 0 0 1 12 2Z"/></svg>L'application</button></li><li><button type="button" data-sd="sd-limites"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A5.0 10 0 0 1 12 2Z"/></svg>Difficultés et limites</button></li><li><button type="button" data-sd="sd-competences"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A7.5 10 0 0 1 12 2Z"/></svg>Compétences</button></li><li><button type="button" data-sd="sd-faq"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><circle class="lit" cx="12" cy="12" r="10"/></svg>FAQ et bilan</button></li></ol></nav>
+            <div class="sd-main" id="sdMain"><section class="sd-sec" id="sd-vue"><div class="sd-kicker"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A7.5 10 0 0 0 12 2Z"/></svg>Chapitre I</div><h3>Un parc remis à niveau, <em>poste par poste</em></h3><p class="sd-lead">Huit semaines de stage BTS SIO SISR au lycée Corvisart-Tolbiac : diagnostic réseau, restauration d'images, déploiement, dépannage matériel et, en complément, une application de suivi des stocks de l'atelier.</p><div class="sd-stats"><div class="sd-stat"><b>8</b><span>Semaines de stage</span></div><div class="sd-stat"><b>8</b><span>Salles remises à niveau</span></div><div class="sd-stat"><b>462</b><span>Produits suivis</span></div><div class="sd-stat"><b>25</b><span>Catégories de stock</span></div></div></section><section class="sd-sec" id="sd-contexte"><div class="sd-kicker"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A5.0 10 0 0 0 12 2Z"/></svg>Chapitre II</div><h3>Contexte et <em>mission</em></h3><div class="sd-grid2"><div class="sd-card"><dl class="sd-dl"><dt>Établissement</dt><dd>Lycée Corvisart-Tolbiac, Paris 13e</dd><dt>Tuteur</dt><dd>M. Teillard</dd><dt>Période</dt><dd>11 mai → 3 juillet 2026</dd><dt>Formation</dt><dd>BTS SIO option SISR, lycée Turgot</dd><dt>Organisation</dt><dd>Stage réalisé en binôme</dd></dl></div><div class="sd-card"><span class="sd-tag">Mission</span><p>Clarifiée dès la première semaine après des échanges avec les enseignants et les agents techniques : un temps fort autour de la gestion du parc informatique (diagnostic, images système, dépannage) et une demande plus pressante autour d'un outil de suivi des stocks.</p><p>Jusque-là, le suivi des matériaux pédagogiques (cuirs, tissus, feuilles, outils) reposait sur un tableur tenu à la main.</p></div></div></section><section class="sd-sec" id="sd-semaines"><div class="sd-kicker"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A2.5 10 0 0 0 12 2Z"/></svg>Chapitre III</div><h3>Du diagnostic à la <em>mise en production</em></h3><p class="sd-lead">Le détail complet, semaine par semaine, du 11 mai au 3 juillet.</p><div class="sd-tl"><article class="sd-wk"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A7.5 10 0 0 0 12 2Z"/></svg><div class="sd-wk-top"><span class="sd-wk-n">S1</span><span class="sd-wk-d">11 → 15 mai</span></div><h4>Découverte du parc informatique</h4><ul><li>Visite des locaux avec M. Teillard, présentation des formations (dont la reliure) et des réserves de matériaux des ateliers reliure et dorure.</li><li>Assistance sur des postes en difficulté à cause du proxy lors de la gestion d'images ISO.</li><li>Visite approfondie de la salle serveur : équipements actifs, baies de brassage, sauvegardes existantes.</li><li>Échanges avec les enseignants : le suivi des stocks reposait sur un tableur tenu à la main. La mission est clarifiée : parc informatique en priorité, outil de stocks en complément.</li></ul></article><article class="sd-wk"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A5.0 10 0 0 0 12 2Z"/></svg><div class="sd-wk-top"><span class="sd-wk-n">S2</span><span class="sd-wk-d">18 → 22 mai</span></div><h4>GLPI écarté, l'application démarre</h4><ul><li>Recherche de solutions open source : GLPI est pensé pour le parc informatique, pas pour des matériaux physiques.</li><li>Développement d'un site dédié (comptes différenciés, alertes par seuil, gratuité), alimenté par les inventaires du lycée, sur un hébergeur gratuit.</li><li>Incidents résolus : poste professeur sous Windows 10 sans mises à jour (ENI en panne), assistance au prestataire après un changement de proxy, proxy bloquant désactivé.</li><li>Mise à jour des articles du site web du lycée.</li></ul></article><article class="sd-wk"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A2.5 10 0 0 0 12 2Z"/></svg><div class="sd-wk-top"><span class="sd-wk-n">S3</span><span class="sd-wk-d">25 → 30 mai</span></div><h4>Application finalisée, formation aux images</h4><ul><li>Tests internes : entrées et sorties, niveaux de stock par catégorie, système d'alertes. Application jugée assez stable pour être validée par les futurs utilisateurs.</li><li>Lancement de la restauration des images système du bâtiment C.</li><li>Un technicien spécialisé nous forme chaque mercredi au déploiement d'images sur plusieurs postes en simultané (théorie et pratique).</li></ul></article><article class="sd-wk"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A0.0 10 0 0 1 12 2Z"/></svg><div class="sd-wk-top"><span class="sd-wk-n">S4</span><span class="sd-wk-d">1 → 5 juin</span></div><h4>Déploiement en salle C3 et stratégie de maintenance</h4><ul><li>Salle C3 : Windows hors service, version adaptée au matériel réinstallée puis postes intégrés au domaine de l'établissement.</li><li>Démarche étendue à une huitaine de salles : trois d'une quinzaine de postes, les autres de deux à trois postes.</li><li>Piste Windows Server et domaine pour pousser les mises à jour depuis un serveur : non aboutie (restrictions de la Région, temps, travaux en fin de stage).</li></ul></article><article class="sd-wk"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A2.5 10 0 0 1 12 2Z"/></svg><div class="sd-wk-top"><span class="sd-wk-n">S5</span><span class="sd-wk-d">8 → 13 juin</span></div><h4>Postes Île-de-France</h4><ul><li>Postes fournis par la Région, surtout de 2020 : Windows 11 impossible, image ISO de Windows 10 utilisée.</li><li>Mot de passe BIOS demandé au démarrage : retrouvé puis modifié pour booter directement depuis une clé USB. Quatre postes traités.</li><li>Deux machines récupérées préparées pour héberger l'application : analyse des composants et vérification de compatibilité.</li></ul></article><article class="sd-wk"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A5.0 10 0 0 1 12 2Z"/></svg><div class="sd-wk-top"><span class="sd-wk-n">S6</span><span class="sd-wk-d">15 → 19 juin</span></div><h4>Nouveau lot, panne isolée</h4><ul><li>Nouveau lot de postes régionaux (2021, 2023).</li><li>Sur l'un d'eux, carte son non reconnue et trackpad inopérant : un cas isolé qui demande une vraie investigation.</li></ul></article><article class="sd-wk"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A7.5 10 0 0 1 12 2Z"/></svg><div class="sd-wk-top"><span class="sd-wk-n">S7</span><span class="sd-wk-d">22 → 26 juin</span></div><h4>Les pilotes en cause, pas la machine</h4><ul><li>Cause trouvée : un problème de pilotes. Bons pilotes retrouvés et image Windows propre réinstallée, son et trackpad refonctionnent.</li><li>Tentative de clonage avec Clonezilla : impossible sur le disque qui héberge l'outil, puis sur clé USB avec un SSD NTFS en destination, sans succès.</li></ul></article><article class="sd-wk"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><circle class="lit" cx="12" cy="12" r="10"/></svg><div class="sd-wk-top"><span class="sd-wk-n">S8</span><span class="sd-wk-d">29 juin → 3 juil.</span></div><h4>Dépannage de postes portables</h4><ul><li>Interventions sur plusieurs portables.</li><li>Poste professeur obsolète : mise à jour du BIOS et du firmware, car l'écran récent associé ne répondait plus. Illustration des limites de compatibilité entre matériel ancien et périphériques récents.</li></ul></article></div></section><section class="sd-sec" id="sd-parc"><div class="sd-kicker"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A0.0 10 0 0 1 12 2Z"/></svg>Chapitre IV</div><h3>Le travail de <em>terrain</em></h3><p class="sd-lead">Derrière l'application, un vrai travail d'infrastructure : diagnostic, remise en état de postes et réflexion sur l'architecture.</p><div class="sd-grid3"><div class="sd-card"><h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Diagnostiquer avant d'agir</h4><p>Avant de coder, GLPI a été testé sur plusieurs VM (Windows 11, Windows Server 2022) pour vérifier s'il pouvait couvrir les stocks. Verdict : trop orienté parc informatique.</p></div><div class="sd-card"><h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Repenser l'architecture réseau</h4><p>Réflexion sur une gestion centralisée : domaine, GPO et mises à jour distribuées depuis un serveur, plutôt qu'un déploiement d'image manuel à chaque fois.</p></div><div class="sd-card"><h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Déverrouiller le BIOS</h4><p>Sur les postes Île-de-France de 2020, mot de passe BIOS retrouvé et modifié pour démarrer directement sur l'image Windows 10 depuis une clé USB. Les mots de passe changeaient selon l'année de fabrication.</p></div><div class="sd-card"><h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Restaurer les images système</h4><p>En salle C3, remise en état via Acronis Cyber Protect : clonage de disque et restauration vers une version de Windows adaptée aux capacités matérielles, puis intégration au domaine.</p></div><div class="sd-card"><h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Chercher la bonne piste</h4><p>Son et trackpad hors service sur un poste : plutôt qu'une panne matérielle, un problème de pilotes. Clonezilla n'a pas abouti ; ce sont les bons pilotes et une image propre qui ont réglé le cas.</p></div><div class="sd-card"><h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Huit salles remises à niveau</h4><p>Trois salles d'une quinzaine de postes, les autres (cours, salle des professeurs, CDI) de deux à trois postes. Partout : système à jour, derniers pilotes, configuration allégée et simple à entretenir.</p></div></div></section><section class="sd-sec" id="sd-appli"><div class="sd-kicker"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A2.5 10 0 0 1 12 2Z"/></svg>Chapitre V</div><h3>L'application <em>CorvisArt Tolbiac</em></h3><p class="sd-lead">Ni un tableur, ni un logiciel de gestion de parc : un outil dédié au suivi des stocks physiques, développé en marge du travail réseau et matériel.</p><div class="sd-grid3"><div class="sd-card"><h4>Suivi en temps réel</h4><p>Le tableau de bord classe chaque produit (correct, faible, critique) et se met à jour à chaque mouvement de stock.</p></div><div class="sd-card"><h4>Alertes automatiques</h4><p>Un seuil par produit : une fois franchi, il remonte dans les alertes, plus de rupture découverte en plein cours.</p></div><div class="sd-card"><h4>Accès par rôle</h4><p>Administrateur, gestionnaire de stock, professeur : chaque compte voit et modifie ce dont il a besoin.</p></div></div><p style="margin:22px 0 12px"><span class="sd-tag">Avant / après</span></p><div class="sd-ba"><div class="sd-card"><h4>Avant : le tableur</h4><ul><li>Un fichier Excel tenu à jour à la main par une professeure volontaire</li><li>Aucune vue d'ensemble en temps réel</li><li>Des ruptures découvertes au moment de s'en servir</li><li>Une traçabilité difficile à maintenir</li></ul></div><div class="sd-card after"><h4>Après : CorvisArt Tolbiac</h4><ul><li>Un tableau de bord centralisé, mis à jour à chaque mouvement</li><li>462 produits dans 25 catégories suivis en continu</li><li>Des alertes dès qu'un seuil est franchi</li><li>Un accès différencié selon le rôle</li></ul></div></div><p style="margin:22px 0 12px"><span class="sd-tag">Accès</span></p><div class="sd-grid3"><div class="sd-card"><h4>Administrateur</h4><p>Accès total : crée et gère les comptes, définit les seuils et catégories, vue globale des deux ateliers.</p></div><div class="sd-card"><h4>Gestionnaire de stock</h4><p>Lecture et écriture : saisit les entrées et sorties, met à jour les quantités, suit les commandes en cours.</p></div><div class="sd-card"><h4>Professeur</h4><p>Lecture seule : consulte les stocks avant un cours et signale un manque, sans modification possible.</p></div></div></section><section class="sd-sec" id="sd-limites"><div class="sd-kicker"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A5.0 10 0 0 1 12 2Z"/></svg>Chapitre VI</div><h3>Difficultés et <em>limites</em></h3><div class="sd-grid2"><div class="sd-card warn"><h4>Mise en domaine non aboutie</h4><p>Windows Server et domaine pour pousser les mises à jour : restrictions de la Région Île-de-France sur les serveurs, temps disponible et travaux dans l'établissement en fin de stage.</p></div><div class="sd-card warn"><h4>GPO du lycée non approfondie</h4><p>Comprendre comment chaque poste et chaque compte étaient gérés à l'échelle de l'établissement n'a pas pu être fait, faute de temps et de moyens.</p></div><div class="sd-card warn"><h4>BIOS hétérogènes</h4><p>Des mots de passe différents selon l'année de fabrication des machines ont ralenti la remise à neuf des postes régionaux.</p></div><div class="sd-card warn"><h4>Matériel ancien, périphériques récents</h4><p>Un poste obsolète ne pilotait plus un écran récent : une mise à jour du BIOS et du firmware a été nécessaire.</p></div></div></section><section class="sd-sec" id="sd-competences"><div class="sd-kicker"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><path class="lit" d="M12 2A10 10 0 0 1 12 22A7.5 10 0 0 1 12 2Z"/></svg>Chapitre VII</div><h3>Compétences <em>mobilisées</em></h3><p class="sd-lead">Ce que ce stage m'a permis de pratiquer concrètement, de A à Z.</p><div class="sd-chips"><span class="chip">Diagnostic matériel</span><span class="chip">Pilotes</span><span class="chip">BIOS</span><span class="chip">Acronis Cyber Protect</span><span class="chip">Clonezilla</span><span class="chip">Windows 10</span><span class="chip">Domaine Windows</span><span class="chip">Windows Server 2022</span><span class="chip">GLPI</span><span class="chip">Windows Defender</span><span class="chip">Proxy</span><span class="chip">Virtualisation (VM)</span><span class="chip">Base de données</span><span class="chip">Gestion des rôles</span><span class="chip">Analyse de besoin</span><span class="chip">Travail en binôme</span></div></section><section class="sd-sec" id="sd-faq"><div class="sd-kicker"><svg class="moon-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="rim" cx="12" cy="12" r="10.4"/><circle class="lit" cx="12" cy="12" r="10"/></svg>Chapitre VIII</div><h3>FAQ et <em>bilan</em></h3><div class="sd-faq"><details><summary>Qu'aurions-nous aimé faire avec plus de temps ?</summary><p>Aller au bout de la mise en domaine et d'un serveur centralisé pour distribuer les mises à jour, creuser la GPO du lycée pour comprendre la gestion de chaque poste et de chaque compte, et étendre la restauration à d'autres salles. Les restrictions de la Région Île-de-France sur les serveurs, le temps disponible et des travaux en fin de stage ne l'ont pas permis.</p></details><details><summary>Pourquoi ne pas avoir utilisé GLPI pour les stocks ?</summary><p>GLPI gère des ordinateurs, pas des rouleaux de cuir ou des feuilles d'or. Après l'avoir testé, nous avons préféré développer une application dédiée aux stocks physiques des ateliers.</p></details><details><summary>Pourquoi Clonezilla n'a-t-il pas suffi ?</summary><p>Sur un poste sans son ni trackpad, le clonage semblait la solution la plus rapide mais s'est heurté à des contraintes de support de destination. Avec le recul, le problème venait des pilotes : une image Windows propre avec les bons pilotes a suffi.</p></details><details><summary>Comment sont calculées les alertes ?</summary><p>Chaque produit a un seuil d'alerte. Le tableau de bord compare en continu la quantité disponible à ce seuil et classe l'article en stock correct, faible ou critique.</p></details><details><summary>Qui peut se connecter à l'application, et où sont les données ?</summary><p>Trois niveaux d'accès (administrateur, gestionnaire de stock, professeur en lecture seule), avec une installation possible en PWA sur l'écran d'accueil. Les données sont hébergées en local, sans partage avec un tiers.</p></details><details><summary>Pourquoi avoir utilisé l'IA pour l'application ?</summary><p>Notre spécialité est l'infrastructure, pas le développement. Face à l'absence de solution gratuite adaptée, construire l'application avec l'aide de l'IA était la voie la plus rapide, sans empiéter sur le temps consacré au réseau et au matériel.</p></details><details><summary>Le stage est-il terminé ?</summary><p>La salle restaurée continue d'être suivie par l'équipe technique et l'application entre en phase de test avec les professeurs et le personnel de l'atelier, avant d'envisager la mise en domaine laissée de côté.</p></details></div><p class="sd-credit">Un projet suivi de bout en bout : du diagnostic du terrain à la mise en service, réalisé en binôme au lycée Corvisart-Tolbiac, BTS SIO SISR, du 11 mai au 3 juillet 2026.</p><div class="sd-foot"><a class="btn-moon" href="https://arab-rayan.github.io/rapport-de-stage-/" target="_blank" rel="noopener">Voir le rapport en ligne<span class="knob"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/> <path pathLength="1" d="M14 2v4a2 2 0 0 0 2 2h4"/> <path pathLength="1" d="M10 9H8"/> <path pathLength="1" d="M16 13H8"/> <path pathLength="1" d="M16 17H8"/></svg></span></a></div></section></div>
+        </div>
+    </div>
+</div>
+
 <!-- Modale documentation (dossier Document/) -->
 <div id="ocsDocModal" class="doc-modal" role="dialog" aria-modal="true" aria-label="Documentation">
     <div class="doc-modal-content frost">
         <div class="doc-modal-header">
             <h2><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/> <path pathLength="1" d="M14 2v4a2 2 0 0 0 2 2h4"/> <path pathLength="1" d="M10 9H8"/> <path pathLength="1" d="M16 13H8"/> <path pathLength="1" d="M16 17H8"/></svg><span id="docModalTitle">Documentation</span></h2>
+            <a id="docOpen" class="sd-link" href="#" target="_blank" rel="noopener" style="margin-left:auto">Ouvrir dans un onglet</a>
             <button class="round-btn clear" onclick="closeOCSDocumentation()" aria-label="Fermer"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M18 6 6 18"/> <path pathLength="1" d="m6 6 12 12"/></svg></button>
         </div>
         <iframe id="docFrame" class="doc-modal-iframe" src="" title="Documentation"></iframe>
@@ -1688,7 +1826,7 @@ let zoom = 1;
 const setZoom = z => { zoom = clamp(z, 1, 3); certImage.style.width = zoom * 100 + '%'; zl.textContent = Math.round(zoom * 100) + '%'; };
 function openCert(card) { const img = $('img', card); certImage.src = img.src; certImage.alt = img.alt; setZoom(1); certModal.classList.add('active'); document.documentElement.style.overflow = 'hidden'; }
 function closeCert() { if (!certModal.classList.contains('active')) return; certModal.classList.remove('active'); document.documentElement.style.overflow = ''; }
-$$('.cert-image-card, .synthese-image-card').forEach(c => {
+$$('.cert-image-card').forEach(c => {
     c.addEventListener('click', () => openCert(c));
     c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCert(c); } });
 });
@@ -1701,6 +1839,7 @@ $('#zoomOutBtn').addEventListener('click', () => setZoom(zoom - .25));
 window.openDocumentation = function (filename, title = 'Documentation') {
     $('#docModalTitle').textContent = title;
     $('#docFrame').src = filename;
+    const o = $('#docOpen'); if (o) o.href = filename;
     $('#ocsDocModal').classList.add('active'); document.documentElement.style.overflow = 'hidden';
 };
 window.closeOCSDocumentation = function () {
@@ -1803,6 +1942,41 @@ if (fine && !reduce) {
 }
 
 $('#year').textContent = new Date().getFullYear();
+})();
+</script>
+
+<script>
+/* ── Module documentation du stage : ouverture, index cliquable, suivi de lecture ── */
+(function () {
+    const modal = document.getElementById('stageDocModal'), main = document.getElementById('sdMain');
+    if (!modal || !main) return;
+    const btns = [...modal.querySelectorAll('.sd-index button')];
+    const secs = btns.map(b => document.getElementById(b.dataset.sd));
+    function setOn(id) { btns.forEach(b => b.classList.toggle('on', b.dataset.sd === id)); }
+    function spy() {
+        const top = main.getBoundingClientRect().top;
+        let cur = secs[0].id;
+        secs.forEach(s => { if (s.getBoundingClientRect().top - top < 120) cur = s.id; });
+        if (main.scrollTop + main.clientHeight >= main.scrollHeight - 4) cur = secs[secs.length - 1].id;
+        setOn(cur);
+        const on = modal.querySelector('.sd-index button.on');
+        if (on && on.scrollIntoView) on.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    }
+    main.addEventListener('scroll', () => requestAnimationFrame(spy), { passive: true });
+    btns.forEach((b, i) => b.addEventListener('click', () => {
+        main.scrollTo({ top: secs[i].offsetTop - 6, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        setOn(b.dataset.sd);
+    }));
+    window.openStageDoc = function () {
+        modal.classList.add('active'); document.documentElement.style.overflow = 'hidden';
+        main.style.scrollBehavior = 'auto'; main.scrollTop = 0; main.style.scrollBehavior = ''; setOn(secs[0].id);
+    };
+    window.closeStageDoc = function () {
+        if (!modal.classList.contains('active')) return;
+        modal.classList.remove('active'); document.documentElement.style.overflow = '';
+    };
+    modal.addEventListener('click', e => { if (e.target === modal) closeStageDoc(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeStageDoc(); });
 })();
 </script>
 </body>
